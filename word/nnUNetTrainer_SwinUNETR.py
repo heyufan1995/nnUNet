@@ -261,14 +261,12 @@ class nnUNetTrainer(NetworkTrainer):
         def get_model():
             import monai
             device = torch.device(f"cuda")
-            model = monai.networks.nets(in_channels=2,
-                                out_channels=3,
+            model = monai.networks.nets.SwinUNETR(in_channels=self.num_input_channels,
+                                out_channels=self.num_classes,
                                 img_size=(96,96,96),
                                 feature_size=48,
-                                patch_size=2,
                                 depths=[2, 2, 2, 2],
-                                num_heads=[3, 6, 12, 24],
-                                window_size=[7, 7, 7])
+                                num_heads=[3, 6, 12, 24])
             return model
         self.network = get_model()
         self.network.inference_apply_nonlin = softmax_helper

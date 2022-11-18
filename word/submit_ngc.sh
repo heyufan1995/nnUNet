@@ -1,7 +1,8 @@
 
 
 TASK='words'
-ID=110269
+# ID=110269
+ID=217257
 FOLD=0
 GPU=16g
 NUMGPU=2
@@ -23,9 +24,9 @@ ngc batch run \
 --ace nv-us-west-2 \
 --instance $INSTANCE \
 --result /results \
---datasetid $ID:/data/$TASK/Task001_Word/ \
+--datasetid $ID:/data/$TASK/ \
 --workspace yufan_nas:/workspace \
 --port 6006 \
---commandline "sleep 100h" 
+--commandline "cd /workspace/nnUNet/word;bash train_dints.sh" 
 
 

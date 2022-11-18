@@ -261,7 +261,7 @@ class nnUNetTrainer(NetworkTrainer):
         def get_model():
             import monai
             device = torch.device(f"cuda")
-            ckpt = torch.load("/home/yufan/Projects/dlmed_transformers/cfswin/cvpr_legacy/flops/arch_code.pth")
+            ckpt = torch.load("/workspace/nnUNet/word/arch_code.pth")
             # ckpt = torch.load(args.arch_ckpt)
             node_a = ckpt["node_a"]
             arch_code_a = ckpt["code_a"]
